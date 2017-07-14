@@ -2,8 +2,9 @@
 
 Projeto criado por mim para aprender python.
 
-1 - fazer o trabalho de poo em python
-2 - persistir em arquivo texto ou binario
+## TODO
+1. fazer o trabalho de poo em python
+2. persistir em arquivo texto ou binario
 todo 3 - persistir com o modulo csv
 todo     3.1 - usar dois arquivos(produtos e unidades)
 todo 4 - persistir com serializacao - nao tenho certeza sobre como funciona
