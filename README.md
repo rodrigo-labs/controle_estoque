@@ -14,8 +14,9 @@ Projeto criado para os meus estudos de python. Essse projeto segue as instruçõ
     5.1 definir banco  
     5.2 usar banco como standalone  
     5.3 usar enum no banco(no campo unidade)  
-    5.4 usar banco como servidor  
-    5.5 trocar enum por uma outra tabela  
+    5.4 usar classe Monetaria  
+    5.5 usar banco como servidor  
+    5.6 trocar enum por uma outra tabela  
 6. fazer a interface grafica com pyqt - utilizar unidade como objeto  
     6.1 usar arquivo .py para a interface  
     6.2 usar arquivo .ui para a interface  
