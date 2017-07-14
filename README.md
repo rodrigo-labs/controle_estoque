@@ -1,9 +1,9 @@
 # Controle de Estoque
 
-Projeto criado por mim para aprender python.
+Projeto criado para os meus estudos de python. Essse projeto segue as instruções do trabalho passado na aula de programação orientada a objetos do curso de sistemas de informação da Unisul o mesmo foi feito usando java em parceria com o Nilton, outro aluno do curso, segue o link:  [_trabalho poo_final_](https://github.com/rodrigo-labs/trabalho_poo_final)
 
 ### JÁ FEITO
-1. fazer o trabalho de poo em python
+1. fazer uma versão do trabalho em python
 2. persistir em arquivo texto ou binario
 
 ### TODO
