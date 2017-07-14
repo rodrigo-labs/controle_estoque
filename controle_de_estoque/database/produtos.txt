@@ -1,0 +1,17 @@
+1,cebola,3.5,kg,100
+4,pao,0.5,unidade,250
+3,leite,1.99,lt,200
+4,cebola,3.5,kg,100
+5,farinha de mandioquinha torrada,9.9,ml,50
+6,leite,1.99,lt,200
+7,cebola,3.5,kg,100
+8,farinha de mandioquinha torrada,9.9,ml,50
+9,leite,1.99,lt,200
+10,cebola,3.5,kg,100
+11,farinha de mandioquinha torrada,9.9,ml,50
+12,leite,1.99,lt,200
+14,pizza,49,unidade,3
+15,teste_excecao,3.99,kg,12
+16,teste3,2,lt,11
+17,teste1,2,un,25
+18,coco,2,pc,2
