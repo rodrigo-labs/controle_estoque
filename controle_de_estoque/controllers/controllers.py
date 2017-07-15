@@ -1,7 +1,7 @@
 import sys
 
 from controle_de_estoque.exceptions.exceptions import ProdutoError
-from controle_de_estoque.models.daos import ProdutoTxtDAO
+from controle_de_estoque.models.daos import ProdutoCsvDAO
 from controle_de_estoque.views.views import Principal, Cadastro, Movimentacao, ReajusteDePreco, Relatorios
 
 
@@ -27,7 +27,7 @@ def principal_controle():
 
 def cadastro_controle():
     cadastro = Cadastro()
-    produto_dao = ProdutoTxtDAO()
+    produto_dao = ProdutoCsvDAO()
 
     while True:
         opcao = cadastro.menu()
@@ -70,7 +70,7 @@ def cadastro_controle():
 
 def movimentacao_controle():
     movimentacao = Movimentacao()
-    produto_dao = ProdutoTxtDAO()
+    produto_dao = ProdutoCsvDAO()
 
     while True:
         opcao = movimentacao.menu()
@@ -101,7 +101,7 @@ def movimentacao_controle():
 
 def reajuste_controle():
     reajuste = ReajusteDePreco()
-    produto_dao = ProdutoTxtDAO()
+    produto_dao = ProdutoCsvDAO()
 
     while True:
         opcao = reajuste.menu()
@@ -123,7 +123,7 @@ def reajuste_controle():
 
 def relatorios_controle():
     relatorios = Relatorios()
-    produto_dao = ProdutoTxtDAO()
+    produto_dao = ProdutoCsvDAO()
 
     while True:
         opcao = relatorios.menu()

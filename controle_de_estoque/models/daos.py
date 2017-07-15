@@ -1,3 +1,5 @@
+import csv
+
 from controle_de_estoque.exceptions.exceptions import ProdutoNaoEncontradoError
 from controle_de_estoque.models.entities import Produto
 
@@ -20,14 +22,21 @@ class ProdutoDAO(object):
         raise NotImplementedError()
 
 
-class ProdutoTxtDAO(ProdutoDAO):
-    _caminho = "database/produtos.txt"
+class ProdutoCsvDAO(ProdutoDAO):
+    _caminho = "database/produtos.csv"
 
     def inserir(self, produto):
         produto.codigo = self._gerar_codigo()
 
         with open(self._caminho, "a") as arquivo:
-            arquivo.write(str(produto) + "\n")
+            nome_dos_campos = ["codigo", "nome", "preco", "unidade", "quantidade"]
+            escritor = csv.DictWriter(arquivo, nome_dos_campos)
+
+            if produto.codigo == 1:
+                escritor.writeheader()
+
+            escritor.writerow({"codigo": produto.codigo, "nome": produto.nome, "preco": produto.preco,
+                               "unidade": produto.unidade, "quantidade": produto.quantidade})
 
     def alterar(self, produto):
         lista = self.obter_lista()
@@ -43,23 +52,28 @@ class ProdutoTxtDAO(ProdutoDAO):
         self._persistir_lista(lista)
 
     def obter_lista(self):
-        with open(self._caminho, "r") as arquivo:
-            lista = []
+        lista = []
 
-            for linha in arquivo:
-                colunas = linha.split(",")
-                lista.append(Produto(*colunas))  # o '*colunas' é uma lista de parametros
+        with open(self._caminho, "r") as arquivo:
+            leitor = csv.DictReader(arquivo)
+
+            for linha in leitor:
+                produto = Produto(linha["codigo"], linha["nome"], linha["preco"], linha["unidade"], linha["quantidade"])
+                lista.append(produto)
 
         return lista
 
     def consultar_por_nome(self, nome):
-        lista = self.obter_lista()
+        with open(self._caminho, "r") as arquivo:
+            leitor = csv.DictReader(arquivo)
 
-        for produto in lista:
-            if nome == produto.nome:
-                return produto
+            for linha in leitor:
+                if linha["nome"] == nome:
+                    produto = Produto(linha["codigo"], linha["nome"], linha["preco"], linha["unidade"],
+                                      linha["quantidade"])
+                    return produto
 
-        raise ProdutoNaoEncontradoError("PRODUTO NÃO ENCONTRADO")
+            raise ProdutoNaoEncontradoError("PRODUTO NÃO ENCONTRADO")
 
     def _obter_indice(self, codigo):
         lista = self.obter_lista()
@@ -72,14 +86,18 @@ class ProdutoTxtDAO(ProdutoDAO):
 
     def _persistir_lista(self, lista):
         with open(self._caminho, "w") as arquivo:
+            nome_dos_campos = ["codigo", "nome", "preco", "unidade", "quantidade"]
+            escritor = csv.DictWriter(arquivo, nome_dos_campos)
+            escritor.writeheader()
+
             for produto in lista:
-                produto_str = str(produto).strip()
-                arquivo.write(produto_str + "\n")
+                escritor.writerow({"codigo": produto.codigo, "nome": produto.nome, "preco": produto.preco,
+                                   "unidade": produto.unidade, "quantidade": produto.quantidade})
 
     def _gerar_codigo(self):
         lista = self.obter_lista()
 
-        if lista:
-            return int(lista[-1].codigo) + 1
+        if not lista:
+            return 1
 
-        return 1
+        return int(lista[-1].codigo) + 1
