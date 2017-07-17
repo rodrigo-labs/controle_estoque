@@ -97,7 +97,7 @@ class ProdutoCsvDAO(ProdutoDAO):
     def _gerar_codigo(self):
         lista = self.obter_lista()
 
-        if not lista:
-            return 1
+        if lista:
+            return int(lista[-1].codigo) + 1
 
-        return int(lista[-1].codigo) + 1
+        return 1

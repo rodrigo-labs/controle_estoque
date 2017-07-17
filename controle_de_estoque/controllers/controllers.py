@@ -5,6 +5,7 @@ from controle_de_estoque.models.daos import ProdutoCsvDAO
 from controle_de_estoque.views.views import Principal, Cadastro, Movimentacao, ReajusteDePreco, Relatorios
 
 
+# todo refatorar esse modulo usando dicionario no lugar de if/else
 def principal_controle():
     principal = Principal()
 
@@ -26,6 +27,7 @@ def principal_controle():
 
 
 def cadastro_controle():
+    # todo criar um metodo que cria um produto e um outro que cria um cadastro(idea)
     cadastro = Cadastro()
     produto_dao = ProdutoCsvDAO()
 
