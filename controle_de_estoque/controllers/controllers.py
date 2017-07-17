@@ -2,7 +2,7 @@ import sys
 
 from controle_de_estoque.exceptions.exceptions import ProdutoError
 from controle_de_estoque.models.daos import ProdutoCsvDAO
-from controle_de_estoque.views.views import Principal, Cadastro, Movimentacao, ReajusteDePreco, Relatorios
+from controle_de_estoque.views.views import Cadastro, Movimentacao, Principal, ReajusteDePreco, Relatorios
 
 
 # todo refatorar esse modulo usando dicionario no lugar de if/else
@@ -27,7 +27,7 @@ def principal_controle():
 
 
 def cadastro_controle():
-    # todo criar um metodo que cria um produto e um outro que cria um cadastro(idea)
+    # todo criar um metodo que cria um produto e um outro que cria um cadastro(ideia)
     cadastro = Cadastro()
     produto_dao = ProdutoCsvDAO()
 

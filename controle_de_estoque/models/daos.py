@@ -101,3 +101,35 @@ class ProdutoCsvDAO(ProdutoDAO):
             return int(lista[-1].codigo) + 1
 
         return 1
+
+
+class UnidadeDAO(object):
+
+    def inserir(self, unidade):
+        raise NotImplementedError()
+
+    def alterar(self, unidade):
+        raise NotImplementedError()
+
+    def excluir(self, unidade):
+        raise NotImplementedError()
+
+    def consultar_por_codigo(self, codigo):
+        raise NotImplementedError()
+
+
+class UnidadeCsvDAO(UnidadeDAO):
+
+    _caminho = "database/unidades.csv"
+
+    def inserir(self, unidade):
+        pass
+
+    def alterar(self, unidade):
+        pass
+
+    def excluir(self, unidade):
+        pass
+
+    def consultar_por_codigo(self, codigo):
+        pass
