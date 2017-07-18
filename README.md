@@ -15,7 +15,7 @@ Projeto criado para os meus estudos de python. Essse projeto segue as instruçõ
     4.4 usar classe Monetaria  
     4.5 usar banco como servidor  
     4.6 trocar enum por uma outra tabela  
-5. fazer a interface grafica com pyqt - utilizar unidade como objeto  
+5. fazer a interface grafica com pyqt
     5.1 usar arquivo .py para a interface  
     5.2 usar arquivo .ui para a interface  
     5.3 usar qml-quick para a interface  
