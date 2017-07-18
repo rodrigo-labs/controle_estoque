@@ -1,103 +1,52 @@
-import csv
+class DAO(object):
 
-from controle_de_estoque.exceptions.exceptions import ProdutoNaoEncontradoError
-from controle_de_estoque.models.entities import Produto
-
-
-class ProdutoDAO(object):
-
-    def inserir(self, produto):
+    def inserir(self, objeto):
         raise NotImplementedError()
 
-    def alterar(self, produto):
+    def alterar(self, objeto):
         raise NotImplementedError()
 
-    def excluir(self, produto):
+    def excluir(self, objeto):
         raise NotImplementedError()
 
     def obter_lista(self):
         raise NotImplementedError()
 
-    def consultar_por_nome(self, nome):
+    def consultar(self, valor):
         raise NotImplementedError()
 
 
-class ProdutoCsvDAO(ProdutoDAO):
-    _caminho = "database/produtos.csv"
+class ProdutoDAO(DAO):
 
     def inserir(self, produto):
-        produto.codigo = self._gerar_codigo()
-
-        with open(self._caminho, "a") as arquivo:
-            nome_dos_campos = ["codigo", "nome", "preco", "unidade", "quantidade"]
-            escritor = csv.DictWriter(arquivo, nome_dos_campos)
-
-            if produto.codigo == 1:
-                escritor.writeheader()
-
-            escritor.writerow({"codigo": produto.codigo, "nome": produto.nome, "preco": produto.preco,
-                               "unidade": produto.unidade, "quantidade": produto.quantidade})
+        pass
 
     def alterar(self, produto):
-        lista = self.obter_lista()
-        indice = self._obter_indice(produto.codigo)
-        lista[indice] = produto
-
-        self._persistir_lista(lista)
+        pass
 
     def excluir(self, produto):
-        lista = self.obter_lista()
-        lista.remove(produto)
+        pass
 
-        self._persistir_lista(lista)
+    def consultar(self, nome):
+        pass
 
     def obter_lista(self):
-        lista = []
+        pass
 
-        with open(self._caminho, "r") as arquivo:
-            leitor = csv.DictReader(arquivo)
 
-            for linha in leitor:
-                produto = Produto(linha["codigo"], linha["nome"], linha["preco"], linha["unidade"], linha["quantidade"])
-                lista.append(produto)
+class UnidadeDAO(DAO):
 
-        return lista
+    def inserir(self, unidade):
+        pass
 
-    def consultar_por_nome(self, nome):
-        with open(self._caminho, "r") as arquivo:
-            leitor = csv.DictReader(arquivo)
+    def alterar(self, unidade):
+        pass
 
-            for linha in leitor:
-                if linha["nome"] == nome:
-                    produto = Produto(linha["codigo"], linha["nome"], linha["preco"], linha["unidade"],
-                                      linha["quantidade"])
-                    return produto
+    def excluir(self, unidade):
+        pass
 
-            raise ProdutoNaoEncontradoError("PRODUTO NÃO ENCONTRADO")
+    def consultar(self, codigo):
+        pass
 
-    def _obter_indice(self, codigo):
-        lista = self.obter_lista()
-
-        for produto in lista:
-            if codigo == produto.codigo:
-                return lista.index(produto)
-
-        raise ProdutoNaoEncontradoError("PRODUTO NÃO ENCONTRADO")
-
-    def _persistir_lista(self, lista):
-        with open(self._caminho, "w") as arquivo:
-            nome_dos_campos = ["codigo", "nome", "preco", "unidade", "quantidade"]
-            escritor = csv.DictWriter(arquivo, nome_dos_campos)
-            escritor.writeheader()
-
-            for produto in lista:
-                escritor.writerow({"codigo": produto.codigo, "nome": produto.nome, "preco": produto.preco,
-                                   "unidade": produto.unidade, "quantidade": produto.quantidade})
-
-    def _gerar_codigo(self):
-        lista = self.obter_lista()
-
-        if lista:
-            return int(lista[-1].codigo) + 1
-
-        return 1
+    def obter_lista(self):
+        pass
