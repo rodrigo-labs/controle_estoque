@@ -23,5 +23,5 @@ Projeto criado para os meus estudos de python. Essse projeto segue as instruçõ
 6. persistir usando algum tipo de ORM
 
 ### CHANGELOG
-Versão v0.1 - app de linha de comando e persistencia em arquivo txt
-Versão v0.2 - app de linha de comando e persistencia em arquivo csv
+1. Versão v0.1 - app de linha de comando e persistencia em arquivo txt
+2. Versão v0.2 - app de linha de comando e persistencia em arquivo csv
