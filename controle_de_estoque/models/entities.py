@@ -1,6 +1,7 @@
 class Produto(object):
 
-    def __init__(self, codigo=0, nome="", preco=0.0, unidade="", quantidade=""):
+    # todo alterar a ordem dos parametros para ficar do jeito correto
+    def __init__(self, codigo, nome, preco, unidade, quantidade):
         self.__codigo = codigo
         self.__nome = nome
         self.__preco = preco
@@ -64,7 +65,7 @@ class Produto(object):
 
 class Unidade(object):
 
-    def __init__(self, codigo=0, descricao_curta="", descricao_longa=""):
+    def __init__(self, codigo, descricao_curta, descricao_longa):
         self.__codigo = codigo
         self.__descricao_curta = descricao_curta
         self.__descricao_longa = descricao_longa
