@@ -209,6 +209,7 @@ class ReajusteDePreco(Principal):
 
 
 class Relatorios(Principal):
+
     def menu(self):
         print("XYZ COMERCIO DE PRODUTOS LTDA.")
         print("SISTEMA DE CONTROLE DE ESTOQUE", end="\n\n")
@@ -244,7 +245,7 @@ class Relatorios(Principal):
         for produto in produtos:
             print("|{:^10d}|{:^28s}|{:^12d}|{:^18.2f}|".format(int(produto.codigo),
                                                                self._formata_string(produto.nome, 24),
-                                                               int(produto.quantidade), produto.get_valor_total()))
+                                                               int(produto.quantidade), produto.valor_total))
         print("+----------+----------------------------+------------+------------------+")
         print("                                        | ESTOQUE EM R$:{:^16.2f}|".format(
             self._get_valor_total_estoque(produtos)))
@@ -264,6 +265,6 @@ class Relatorios(Principal):
         valor_total = 0
 
         for produto in produtos:
-            valor_total += produto.get_valor_total()
+            valor_total += produto.valor_total
 
         return valor_total

@@ -4,19 +4,6 @@ from controle_de_estoque.exceptions.exceptions import ProdutoNaoEncontradoError
 from controle_de_estoque.models.entities import Produto
 
 
-class Conexao(object):
-    _path = "database/controle_de_estoque.bd"
-
-    def __init__(self) -> None:
-        self._db = sqlite3.connect(self._path)
-
-    def get_conexao(self):
-        return self._db
-
-    def __del__(self):
-        self._db.close()
-
-
 class DAO(object):
     def inserir(self, objeto):
         raise NotImplementedError()
@@ -97,20 +84,3 @@ class ProdutoDAO(DAO):
             produtos.append(produto)
 
         return produtos
-
-
-class UnidadeDAO(DAO):
-    def inserir(self, unidade):
-        pass
-
-    def alterar(self, unidade):
-        pass
-
-    def excluir(self, unidade):
-        pass
-
-    def consultar(self, codigo):
-        pass
-
-    def listar(self):
-        pass
