@@ -15,16 +15,16 @@ Projeto criado para os meus estudos de python. Essse projeto segue as instruçõ
     - usar enum no banco
     - trocar enum por uma outra tabela
     - usar unidade como objeto
-4. fazer a interface grafica com pyqt
+4. utilizar uma interface grafica com pyqt5
     - usar arquivo .py para a interface
     - usar arquivo .ui para a interface
     - usar qml-quick para a interface
 5. persistir usando algum tipo de ORM
-6. fazer interface web
+6. utilizar uma interface web
     - usar django
     - usar outro framework
 
 ### CHANGELOG
-Versão v0.1 - app de linha de comando e persistencia em arquivo txt
-Versão v0.2 - app de linha de comando e persistencia em arquivo csv
-Versão v0.3 - app de linha de comando e persistencia em banco de dados
+1. Versão v0.1 - app de linha de comando e persistencia em arquivo txt
+2. Versão v0.2 - app de linha de comando e persistencia em arquivo csv
+3. Versão v0.3 - app de linha de comando e persistencia em banco de dados
