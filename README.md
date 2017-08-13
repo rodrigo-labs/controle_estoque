@@ -8,19 +8,18 @@ Projeto criado para os meus estudos de python. Essse projeto segue as instruçõ
 3. persistir com banco de dados
 
 ### TODO
-3. persistir usando banco de dados
-    - usar banco como standalone (sqlite3)
-    - usar classe Monetaria
-    - usar banco como servidor (mysql ou postgres)
-    - usar enum no banco
-    - trocar enum por uma outra tabela
-    - usar unidade como objeto
 4. utilizar uma interface grafica com pyqt5
     - usar arquivo .py para a interface
     - usar arquivo .ui para a interface
     - usar qml-quick para a interface
-5. persistir usando algum tipo de ORM
-6. utilizar uma interface web
+5. persistir usando outro tipo de banco de dados
+    - usar banco como servidor (mysql ou postgres)
+    - usar uma classe Monetaria para preco
+    - usar enum no banco
+    - trocar enum por uma outra tabela
+    - atributo unidade com um objeto
+6. persistir usando algum tipo de ORM
+7. utilizar uma interface web
     - usar django
     - usar outro framework
 
